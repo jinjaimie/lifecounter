@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet var losingMessage: UILabel!
     
-    var scores = [20, 20, 20, 20]
+    var scores = [0, 0, 0, 0]
     @IBOutlet var buttons: [UILabel]!
     var player = ["Player 1", "Player 2", "Player 3", "Player 4"]
     override func viewDidLoad() {
