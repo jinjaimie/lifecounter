@@ -25,27 +25,40 @@ class ViewController: UIViewController {
             losingMessage.isHidden = false
         }
     }
+    
+    func findScore(_ tagNum: Int) -> UILabel {
+        for b in buttons {
+            if (b.tag == tagNum) {
+                return b
+            }
+        }
+        return buttons[0]
+    }
 
     @IBAction func Add1(_ sender: UIButton) {
         losingMessage.isHidden = true;
         scores[sender.tag] += 1;
-        buttons[sender.tag].text = String(scores[sender.tag])
+        let button = findScore(sender.tag);
+        button.text = String(scores[sender.tag])
     }
     @IBAction func Add5(_ sender: UIButton) {
         losingMessage.isHidden = true;
         scores[sender.tag] += 5;
-        buttons[sender.tag].text = String(scores[sender.tag])
+        let button = findScore(sender.tag);
+        button.text = String(scores[sender.tag])
     }
     @IBAction func Sub1(_ sender: UIButton) {
         losingMessage.isHidden = true;
         scores[sender.tag] -= 1;
-        buttons[sender.tag].text = String(scores[sender.tag])
+        let button = findScore(sender.tag);
+        button.text = String(scores[sender.tag])
         checkScore(score: scores[sender.tag], player: player[sender.tag])
     }
     @IBAction func Sub5(_ sender: UIButton) {
         losingMessage.isHidden = true;
         scores[sender.tag] -= 5;
-        buttons[sender.tag].text = String(scores[sender.tag])
+        let button = findScore(sender.tag);
+        button.text = String(scores[sender.tag])
         checkScore(score: scores[sender.tag], player: player[sender.tag])
     }
 }
