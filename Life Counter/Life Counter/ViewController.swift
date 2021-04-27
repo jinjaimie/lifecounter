@@ -13,10 +13,14 @@ class ViewController: UIViewController {
     var livePlayer = 4;
     var scores = [20, 20, 20, 20, 20, 20, 20, 20]
     var history: [String] = []
+    var subValue = [5, 5, 5, 5, 5, 5, 5, 5]
+    var addValue = [5, 5, 5, 5, 5, 5, 5, 5]
     @IBOutlet var buttons: [UILabel]!
     @IBOutlet var addPButton: UIButton!
     @IBOutlet var SubPButton: UIButton!
     @IBOutlet var playerList: [UIStackView]!
+    @IBOutlet var minusButtons: [UIButton]!
+    @IBOutlet var addButtons: [UIButton]!
     var players = ["Player 1", "Player 2", "Player 3", "Player 4", "Player 5", "Player 6", "Player 7", "Player 8"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +73,7 @@ class ViewController: UIViewController {
         if numPlayer != 2 {
             SubPButton.isEnabled = true;
         }
+        livePlayer = numPlayer
     }
     
     func findScore(_ tagNum: Int) -> UILabel {
@@ -88,6 +93,59 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func changeMinusVal(_ sender: UIButton) {
+        var button = sender
+        for b in minusButtons {
+            if b.tag == sender.tag {
+                button = b
+            }
+        }
+        let alertController = UIAlertController(title: "Enter new value?", message: "Enter how many lives to subtract by", preferredStyle: .alert)
+        alertController.addTextField { (textField) -> Void in
+            textField.keyboardType = UIKeyboardType.numberPad
+            textField.placeholder = button.currentTitle
+        }
+        
+        let confirmAction = UIAlertAction(title: "Enter", style: .default) { (_) in
+            let name = alertController.textFields?[0].text
+            if (Int(name!) != nil) {
+                button.setTitle("-" + name!, for: .normal)
+                self.subValue[sender.tag] = Int(name!)!
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    @IBAction func changeAddVal(_ sender: UIButton) {
+        var button = sender
+        for b in addButtons {
+            if b.tag == sender.tag {
+                button = b
+            }
+        }
+        let alertController = UIAlertController(title: "Enter new value?", message: "Enter how many lives to add by", preferredStyle: .alert)
+        alertController.addTextField { (textField) -> Void in
+            textField.keyboardType = UIKeyboardType.numberPad
+            textField.placeholder = button.currentTitle
+        }
+        
+        let confirmAction = UIAlertAction(title: "Enter", style: .default) { (_) in
+            let name = alertController.textFields?[0].text
+            if (Int(name!) != nil) {
+                button.setTitle("+" + name!, for: .normal)
+                self.addValue[sender.tag] = Int(name!)!
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func Add1(_ sender: UIButton) {
         addPButton.isEnabled = false;
         SubPButton.isEnabled = false;
@@ -101,10 +159,10 @@ class ViewController: UIViewController {
         addPButton.isEnabled = false;
         SubPButton.isEnabled = false;
         losingMessage.isHidden = true;
-        scores[sender.tag] += 5;
+        scores[sender.tag] += addValue[sender.tag];
         let button = findScore(sender.tag);
         button.text = String(scores[sender.tag])
-        addHistory(player: players[sender.tag], action: "+", num: 5)
+        addHistory(player: players[sender.tag], action: "+", num: addValue[sender.tag])
     }
     @IBAction func Sub1(_ sender: UIButton) {
         addPButton.isEnabled = false;
@@ -120,10 +178,10 @@ class ViewController: UIViewController {
         addPButton.isEnabled = false;
         SubPButton.isEnabled = false;
         losingMessage.isHidden = true;
-        scores[sender.tag] -= 5;
+        scores[sender.tag] -= subValue[sender.tag];
         let button = findScore(sender.tag);
         button.text = String(scores[sender.tag])
-        addHistory(player: players[sender.tag], action: "-", num: 5)
+        addHistory(player: players[sender.tag], action: "-", num: subValue[sender.tag])
         checkScore(score: scores[sender.tag], player: players[sender.tag])
     }
     
@@ -176,7 +234,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func MinusPlayer(_ sender: UIButton) {
+    @IBAction func minusPlayer(_ sender: UIButton) {
         for p in playerList {
             if p.tag == numPlayer - 1 {
                 p.isHidden = true;
