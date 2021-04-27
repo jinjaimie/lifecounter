@@ -786,11 +786,11 @@
                             <constraint firstAttribute="bottom" secondItem="1he-ui-DYZ" secondAttribute="bottom" constant="40" id="6C2-Wb-voU"/>
                             <constraint firstItem="Snx-nh-8g3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="6XE-8j-vyd"/>
                             <constraint firstItem="FB3-kI-2bM" firstAttribute="leading" secondItem="Bxs-Ai-MX1" secondAttribute="trailing" constant="10" id="DEP-9z-a73"/>
-                            <constraint firstItem="dXU-sD-JFX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HbI-UM-Vwg"/>
                             <constraint firstItem="Bxs-Ai-MX1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="LKL-ts-5cj"/>
+                            <constraint firstItem="dXU-sD-JFX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Y1S-8w-aBm"/>
                             <constraint firstItem="1he-ui-DYZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eMp-kU-lFW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Snx-nh-8g3" secondAttribute="trailing" constant="10" id="oME-Zk-IVs"/>
-                            <constraint firstItem="dXU-sD-JFX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vfn-5e-F7Q"/>
+                            <constraint firstItem="dXU-sD-JFX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pwY-rm-9Kn"/>
                         </constraints>
                     </view>
                     <connections>
@@ -836,13 +836,19 @@
                                     <segue destination="noe-KN-Fb0" kind="unwind" unwindAction="myUnwindActionWithUnwindSegue:" id="ABf-9n-qYa"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqw-CJ-9OC">
-                                <rect key="frame" x="186" y="147" width="55" height="21"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0sQ-fR-04c">
+                                <rect key="frame" x="-20" y="118" width="454" height="647"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RxQ-wx-Dk6">
+                                        <rect key="frame" x="20" y="20" width="414" height="607"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="vuH-rD-1Ne"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="nzn-Te-IX8"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0A5-Ty-1R2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -853,13 +859,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="voH-IK-7gN"/>
                     <connections>
-                        <outlet property="label" destination="Eqw-CJ-9OC" id="JRw-vP-ACl"/>
+                        <outlet property="table" destination="RxQ-wx-Dk6" id="q7F-ec-dyP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nl6-6O-Xpw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="noe-KN-Fb0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1006" y="211"/>
+            <point key="canvasLocation" x="1005.7971014492755" y="210.9375"/>
         </scene>
     </scenes>
     <resources>

@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     @IBOutlet var losingMessage: UILabel!
     var numPlayer = 4;
     var scores = [20, 20, 20, 20, 20, 20, 20, 20]
-    var history = ["hi"]
+    var history = ["hi", "hello"]
     @IBOutlet var buttons: [UILabel]!
     @IBOutlet var addPButton: UIButton!
     @IBOutlet var SubPButton: UIButton!
@@ -32,6 +32,14 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
+      if segue.identifier == "HistorySeg",
+         let ViewControllerHistory = segue.destination as? ViewControllerHistory {
+        ViewControllerHistory.history = history
+      }
+    }
+    
     func checkScore(score: Int, player: String) {
         if (score <= 0) {
             losingMessage.text = "\(player) LOSES!"
@@ -113,14 +121,6 @@ class ViewController: UIViewController {
         if numPlayer == 2 {
             SubPButton.isEnabled = false;
         }
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
-      if segue.identifier == "HistorySeg",
-         let ViewControllerHistory = segue.destination as? ViewControllerHistory {
-        ViewControllerHistory.history = history
-      }
     }
     
 }
