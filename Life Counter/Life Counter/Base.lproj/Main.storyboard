@@ -773,6 +773,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snx-nh-8g3">
                                 <rect key="frame" x="354" y="84" width="50" height="30"/>
                                 <state key="normal" title="History"/>
+                                <connections>
+                                    <segue destination="BII-DQ-YY6" kind="show" id="HS9-GG-1Rf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -821,13 +824,30 @@
             <objects>
                 <viewController id="BII-DQ-YY6" customClass="ViewControllerHistory" customModule="Life_Counter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z5K-gR-lvt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQZ-9f-8sL">
+                                <rect key="frame" x="10" y="40" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="back:" destination="noe-KN-Fb0" eventType="touchUpInside" id="Mhj-7K-rio"/>
+                                    <action selector="myUnwindActionWithUnwindSegue:" destination="BII-DQ-YY6" eventType="touchUpInside" id="zvc-ZL-P7M"/>
+                                    <segue destination="noe-KN-Fb0" kind="unwind" unwindAction="myUnwindActionWithUnwindSegue:" id="ABf-9n-qYa"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="0A5-Ty-1R2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sQZ-9f-8sL" firstAttribute="leading" secondItem="0A5-Ty-1R2" secondAttribute="leading" constant="10" id="T19-yf-LVA"/>
+                            <constraint firstItem="sQZ-9f-8sL" firstAttribute="top" secondItem="0A5-Ty-1R2" secondAttribute="top" constant="40" id="jt6-kT-Gu0"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="voH-IK-7gN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nl6-6O-Xpw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="noe-KN-Fb0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1006" y="211"/>
         </scene>

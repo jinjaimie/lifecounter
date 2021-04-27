@@ -8,6 +8,9 @@
 import UIKit
 
 class ViewControllerHistory: UIViewController {
-    
+    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue) {
+        self.dismiss(animated: false)
+        
+    }
 }
 
