@@ -849,17 +849,25 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="vuH-rD-1Ne"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="nzn-Te-IX8"/>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hug-fe-8hc">
+                                <rect key="frame" x="154.5" y="40" width="105" height="41"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0A5-Ty-1R2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hug-fe-8hc" firstAttribute="centerX" secondItem="Z5K-gR-lvt" secondAttribute="centerX" id="3yy-RR-mgK"/>
                             <constraint firstItem="sQZ-9f-8sL" firstAttribute="leading" secondItem="0A5-Ty-1R2" secondAttribute="leading" constant="10" id="T19-yf-LVA"/>
                             <constraint firstItem="sQZ-9f-8sL" firstAttribute="top" secondItem="0A5-Ty-1R2" secondAttribute="top" constant="40" id="jt6-kT-Gu0"/>
+                            <constraint firstItem="hug-fe-8hc" firstAttribute="top" secondItem="0A5-Ty-1R2" secondAttribute="top" constant="40" id="kzz-xb-YUg"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="voH-IK-7gN"/>
                     <connections>
-                        <outlet property="table" destination="RxQ-wx-Dk6" id="q7F-ec-dyP"/>
+                        <outlet property="table" destination="RxQ-wx-Dk6" id="pB7-Jb-Hqd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nl6-6O-Xpw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

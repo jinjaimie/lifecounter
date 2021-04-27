@@ -9,9 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet var losingMessage: UILabel!
-    var numPlayer = 4;
+    var numPlayer = 4
     var scores = [20, 20, 20, 20, 20, 20, 20, 20]
-    var history = ["hi", "hello"]
+    var history: [String] = []
     @IBOutlet var buttons: [UILabel]!
     @IBOutlet var addPButton: UIButton!
     @IBOutlet var SubPButton: UIButton!
@@ -44,6 +44,7 @@ class ViewController: UIViewController {
         if (score <= 0) {
             losingMessage.text = "\(player) LOSES!"
             losingMessage.isHidden = false
+            addHistory(player: player, action: "lose", num: 0)
         }
     }
     
@@ -61,8 +62,9 @@ class ViewController: UIViewController {
         SubPButton.isEnabled = false;
         losingMessage.isHidden = true;
         scores[sender.tag] += 1;
-        let button = findScore(sender.tag);
+        let button = findScore(sender.tag)
         button.text = String(scores[sender.tag])
+        addHistory(player: players[sender.tag], action: "+", num: 1)
     }
     @IBAction func Add5(_ sender: UIButton) {
         addPButton.isEnabled = false;
@@ -71,6 +73,7 @@ class ViewController: UIViewController {
         scores[sender.tag] += 5;
         let button = findScore(sender.tag);
         button.text = String(scores[sender.tag])
+        addHistory(player: players[sender.tag], action: "+", num: 5)
     }
     @IBAction func Sub1(_ sender: UIButton) {
         addPButton.isEnabled = false;
@@ -79,6 +82,7 @@ class ViewController: UIViewController {
         scores[sender.tag] -= 1;
         let button = findScore(sender.tag);
         button.text = String(scores[sender.tag])
+        addHistory(player: players[sender.tag], action: "-", num: 1)
         checkScore(score: scores[sender.tag], player: players[sender.tag])
     }
     @IBAction func Sub5(_ sender: UIButton) {
@@ -88,7 +92,21 @@ class ViewController: UIViewController {
         scores[sender.tag] -= 5;
         let button = findScore(sender.tag);
         button.text = String(scores[sender.tag])
+        addHistory(player: players[sender.tag], action: "-", num: 5)
         checkScore(score: scores[sender.tag], player: players[sender.tag])
+    }
+    
+    func addHistory(player: String, action: String, num: Int) {
+        var text = player
+        switch action {
+        case "+":
+            text += " gained " + String(num) + " life."
+        case "-":
+            text += " lost " + String(num) + " life."
+        default:
+            text += " LOSES!"
+        }
+        history.append(text)
     }
 
     @IBAction func addPlayer(_ sender: UIButton) {
