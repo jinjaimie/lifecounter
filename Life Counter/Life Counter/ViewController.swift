@@ -139,6 +139,25 @@ class ViewController: UIViewController {
         }
         history.append(text)
     }
+    
+    @IBAction func changeName(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Enter new name?", message: "Enter your name", preferredStyle: .alert)
+        
+        let confirmAction = UIAlertAction(title: "Enter", style: .default) { (_) in
+            let name = alertController.textFields?[0].text
+            sender.setTitle(name, for: .normal)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = sender.currentTitle
+        }
+        
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
 
     @IBAction func addPlayer(_ sender: UIButton) {
         for p in playerList {
