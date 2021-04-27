@@ -48,17 +48,13 @@ class ViewController: UIViewController {
             addHistory(player: player, action: "lose", num: 0)
             livePlayer -= 1;
         }
-        
-        if livePlayer == 1 {
-            losingMessage.text = "Game Over!"
-            reset()
-        }
+        perform(#selector(checkGame), with: nil, afterDelay: 0.2)
     }
     
     @IBAction func reset(_ sender: Any) {
-        reset()
+        resetGame()
     }
-    func reset() {
+    @objc func resetGame() {
         for b in buttons {
             b.text = "20"
         }
@@ -82,6 +78,14 @@ class ViewController: UIViewController {
             }
         }
         return buttons[0]
+    }
+    
+    @objc func checkGame() {
+        if livePlayer == 1 {
+            losingMessage.text = "Game Over!"
+            perform(#selector(resetGame), with: nil, afterDelay: 0.5)
+            
+        }
     }
 
     @IBAction func Add1(_ sender: UIButton) {
