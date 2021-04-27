@@ -774,7 +774,7 @@
                                 <rect key="frame" x="354" y="84" width="50" height="30"/>
                                 <state key="normal" title="History"/>
                                 <connections>
-                                    <segue destination="BII-DQ-YY6" kind="show" id="HS9-GG-1Rf"/>
+                                    <segue destination="BII-DQ-YY6" kind="show" identifier="HistorySeg" destinationCreationSelector="prepare:" id="HS9-GG-1Rf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -836,6 +836,13 @@
                                     <segue destination="noe-KN-Fb0" kind="unwind" unwindAction="myUnwindActionWithUnwindSegue:" id="ABf-9n-qYa"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqw-CJ-9OC">
+                                <rect key="frame" x="186" y="147" width="55" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0A5-Ty-1R2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -845,6 +852,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="voH-IK-7gN"/>
+                    <connections>
+                        <outlet property="label" destination="Eqw-CJ-9OC" id="JRw-vP-ACl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nl6-6O-Xpw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="noe-KN-Fb0" userLabel="Exit" sceneMemberID="exit"/>

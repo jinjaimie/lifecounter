@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     @IBOutlet var losingMessage: UILabel!
     var numPlayer = 4;
     var scores = [20, 20, 20, 20, 20, 20, 20, 20]
+    var history = ["hi"]
     @IBOutlet var buttons: [UILabel]!
     @IBOutlet var addPButton: UIButton!
     @IBOutlet var SubPButton: UIButton!
@@ -113,6 +114,14 @@ class ViewController: UIViewController {
             SubPButton.isEnabled = false;
         }
     }
-
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
+      if segue.identifier == "HistorySeg",
+         let ViewControllerHistory = segue.destination as? ViewControllerHistory {
+        ViewControllerHistory.history = history
+      }
+    }
+    
 }
 
