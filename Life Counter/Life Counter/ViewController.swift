@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet var losingMessage: UILabel!
     var numPlayer = 4
+    var livePlayer = 4;
     var scores = [20, 20, 20, 20, 20, 20, 20, 20]
     var history: [String] = []
     @IBOutlet var buttons: [UILabel]!
@@ -41,10 +42,36 @@ class ViewController: UIViewController {
     }
     
     func checkScore(score: Int, player: String) {
-        if (score <= 0) {
+        if score <= 0 {
             losingMessage.text = "\(player) LOSES!"
             losingMessage.isHidden = false
             addHistory(player: player, action: "lose", num: 0)
+            livePlayer -= 1;
+        }
+        
+        if livePlayer == 1 {
+            losingMessage.text = "Game Over!"
+            reset()
+        }
+    }
+    
+    @IBAction func reset(_ sender: Any) {
+        reset()
+    }
+    func reset() {
+        for b in buttons {
+            b.text = "20"
+        }
+        for i in 0...7 {
+            scores[i] = 20
+        }
+        losingMessage.isHidden = true
+        history = []
+        if numPlayer != 8 {
+            addPButton.isEnabled = true;
+        }
+        if numPlayer != 2 {
+            SubPButton.isEnabled = true;
         }
     }
     
@@ -114,6 +141,7 @@ class ViewController: UIViewController {
             if p.tag == numPlayer {
                 p.isHidden = false;
                 numPlayer += 1;
+                livePlayer += 1;
                 break;
             }
         }
@@ -130,6 +158,7 @@ class ViewController: UIViewController {
             if p.tag == numPlayer - 1 {
                 p.isHidden = true;
                 numPlayer -= 1;
+                livePlayer -= 1;
                 break;
             }
         }
