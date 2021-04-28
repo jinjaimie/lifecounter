@@ -39,7 +39,8 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
-      if segue.identifier == "HistorySeg",
+        guard let identifier = segue.identifier else { return }
+      if identifier == "HistorySeg",
          let ViewControllerHistory = segue.destination as? ViewControllerHistory {
         ViewControllerHistory.history = history
       }
@@ -58,6 +59,7 @@ class ViewController: UIViewController {
     @IBAction func reset(_ sender: Any) {
         resetGame()
     }
+
     @objc func resetGame() {
         for b in buttons {
             b.text = "20"

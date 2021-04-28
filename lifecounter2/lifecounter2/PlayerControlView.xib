@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayerControlView" customModule="lifecounter2" customModuleProvider="target">
+            <connections>
+                <outlet property="addButton" destination="rgM-mf-21W" id="sal-OG-MeO"/>
+                <outlet property="label" destination="zmH-pd-34m" id="wlb-02-vgj"/>
+                <outlet property="minusButton" destination="ffG-ho-ZCQ" id="1TX-Ny-tqc"/>
+                <outlet property="play" destination="Acz-kO-YRU" id="Wkh-7M-ogu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" id="3KR-HL-oPx">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="68"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Acz-kO-YRU">
+                    <rect key="frame" x="0.0" y="0.0" width="59" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Player 1">
+                        <color key="titleColor" systemColor="labelColor"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" systemColor="labelColor"/>
+                    </state>
+                    <connections>
+                        <action selector="changeName:" destination="-1" eventType="touchUpInside" id="NnW-hD-SSZ"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9hw-Ac-dI8">
+                    <rect key="frame" x="0.0" y="34" width="330" height="34"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBM-02-ece">
+                            <rect key="frame" x="0.0" y="2" width="30" height="30"/>
+                            <state key="normal" title="Edit"/>
+                            <connections>
+                                <action selector="changeMinusVal:" destination="-1" eventType="touchUpInside" id="7Lm-rB-MKJ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ffG-ho-ZCQ">
+                            <rect key="frame" x="50" y="2" width="30" height="30"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" title="-5"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="Sub5:" destination="-1" eventType="touchUpInside" id="y5S-Qo-hY7"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyL-6v-Lcq">
+                            <rect key="frame" x="100" y="2" width="30" height="30"/>
+                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" title="-"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="Sub1:" destination="-1" eventType="touchUpInside" id="hNJ-Uh-Lzc"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="zmH-pd-34m">
+                            <rect key="frame" x="150" y="7" width="30" height="20.5"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <accessibilityTraits key="traits" none="YES"/>
+                            </accessibility>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZF4-tt-B9Q">
+                            <rect key="frame" x="200" y="2" width="30" height="30"/>
+                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" title="+"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="Add1:" destination="-1" eventType="touchUpInside" id="l2H-eu-iTp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgM-mf-21W">
+                            <rect key="frame" x="250" y="2" width="30" height="30"/>
+                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <state key="normal" title="+5"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="Add5:" destination="-1" eventType="touchUpInside" id="x8C-r9-3bb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU8-RG-tPy">
+                            <rect key="frame" x="300" y="2" width="30" height="30"/>
+                            <state key="normal" title="Edit"/>
+                            <connections>
+                                <action selector="changeAddVal:" destination="-1" eventType="touchUpInside" id="4Gf-Da-b49"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="b45-eI-5jb"/>
+            <point key="canvasLocation" x="-716" y="-257"/>
+        </stackView>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
