@@ -13,4 +13,8 @@ Stories:
 - As a user, when I launch the application, it should show me four “players”, but allow for a flexible number of players in total, from 2 to 8. It should have an "add player" button near the top that, when pressed, adds a new player to the game (with a stating life total of 20). After a game has started (any player's life totals have changed), the "add player" button should be disabled until the game is over.
 - As a user, I often want to look back at the history of the game; create a new screen, called "History", that comes up when I push the "History" button from the main screen. This "History" screen should just have a list of all of what's happened in this app: "Player 1 lost one life." "Player 3 lost four life." and so on.
 
+Bonus:
+- As a user, when all but one player has lost (life totals to less than zero), it should display "Game over!" and reset back to the original application state. Add a button called "Reset" to reset back to the original application state, as well. This should include the history, as well.
+- As a user, I want to add names to the players. When I tap on the text control for the player name (whatever you currently have there), bring up a small dialog that allows me to enter a new name for that player.
+
 Note: both files contain the same result. lifecounter2 contains the project using a XIB file.
